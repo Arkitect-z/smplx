@@ -42,7 +42,7 @@ from collections import namedtuple
 
 TensorOutput = namedtuple('TensorOutput',
                           ['vertices', 'joints', 'betas', 'expression', 'global_orient', 'body_pose', 'left_hand_pose',
-                           'right_hand_pose', 'jaw_pose', 'transl', 'full_pose'])
+                           'right_hand_pose', 'jaw_pose', 'transl', 'full_pose', 'joints_transforms'])
 
 
 class SMPL(nn.Module):
