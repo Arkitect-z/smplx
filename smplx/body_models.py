@@ -1446,7 +1446,7 @@ class SMPLXLayer(SMPLX):
 
         shapedirs = torch.cat([self.shapedirs, self.expr_dirs], dim=-1)
 
-        vertices, joints = lbs(shape_components, full_pose, self.v_template,
+        vertices, joints, joints_transforms = lbs(shape_components, full_pose, self.v_template,
                                shapedirs, self.posedirs,
                                self.J_regressor, self.parents,
                                self.lbs_weights,
@@ -1499,7 +1499,8 @@ class SMPLXLayer(SMPLX):
                               right_hand_pose=right_hand_pose,
                               jaw_pose=jaw_pose,
                               transl=transl if transl != None else Tensor(0),
-                              full_pose=full_pose if return_full_pose else Tensor(0))
+                              full_pose=full_pose if return_full_pose else Tensor(0),
+                              joints_transforms=joints_transforms)
 
         return output
 
